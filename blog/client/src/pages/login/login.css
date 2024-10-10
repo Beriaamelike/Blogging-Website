@@ -1,0 +1,73 @@
+.login {
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://media.istockphoto.com/id/1041155610/tr/foto%C4%9Fraf/bulan%C4%B1k-ye%C5%9Fil-renk-do%C4%9Fa-park%C4%B1-a%C3%A7%C4%B1k-arka-plan-bahar-soyut-ve-g%C3%BCne%C5%9F-%C4%B1%C5%9F%C4%B1%C4%9F%C4%B1-ile-yaz-sezonu.jpg?s=612x612&w=0&k=20&c=2E-4iFItFIwfmRLjHiOhchvQN6bokYHjltFPOrFYyN4=");
+  background-size: cover;
+}
+
+.loginbox {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0.25, 0.25, 0, 0.25) 10px 10px 10px 10px;
+  width: 400px;
+  height: 350px;
+  background-image: url("https://st4.depositphotos.com/3365585/31254/i/950/depositphotos_312545404-stock-photo-empty-wooden-blurred-green-nature.jpg");
+}
+
+.label {
+  font-size: 14px;
+}
+
+.loginTitle {
+  font-size: 20px;
+}
+
+.loginForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm > label {
+  margin: 10px 0;
+}
+
+.loginInput {
+  padding: 10px;
+  background-color: white;
+  border: none;
+  width: 300px;
+  height: 30px;
+}
+
+.loginInput:focus {
+  outline: none;
+}
+
+.loginButton {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: teal;
+  color: white;
+  border: none;
+  text-align: center;
+  height: 30px;
+}
+
+.loginRegisterButton {
+  margin-top: 20px;
+  cursor: pointer;
+  color: rgb(49, 9, 183);
+  border: none;
+  text-align: right;
+  height: 30px;
+}

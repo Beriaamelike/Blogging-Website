@@ -1,0 +1,5 @@
+.categories {
+  flex: 10;
+  display: flex;
+  flex-wrap: wrap;
+}

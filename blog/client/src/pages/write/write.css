@@ -1,0 +1,109 @@
+/* Genel Ayarlar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ana container */
+.write {
+  width: 100%;
+  height: 900px;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Resim önizlemesi */
+.writeImg {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+/* Form Elemanları */
+.writeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Giriş Elemanları */
+.writeInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.writeInput:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Kategori Seçimi */
+.writeSelect {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.writeSelect:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Textarea Ayarları */
+.writeText {
+  height: 150px;
+  resize: none;
+  font-family: inherit;
+}
+
+/* Resim Yükleme Butonu */
+.writeIcon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.writeIcon:hover {
+  color: #0056b3;
+}
+
+/* Postala Butonu */
+.writeSubmit {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.writeSubmit:hover {
+  background-color: #0056b3;
+}
+
+/* Durum Mesajı */
+.statusMessage {
+  color: #28a745;
+  font-size: 14px;
+}

@@ -1,0 +1,38 @@
+.header {
+  margin-top: 15px;
+}
+
+.headerTitles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Lora", serif;
+}
+
+.headerTitleSm {
+  position: absolute;
+  top: 30%;
+  font-size: 20px;
+  color: aliceblue;
+}
+
+.headerTitleLg {
+  position: absolute;
+  top: 30%;
+  font-size: 100px;
+  color: antiquewhite;
+}
+
+.headerImg {
+  width: 100%;
+  height: 310px;
+  margin-top: 5px;
+  object-fit: cover;
+}
+
+.input-group {
+  position: absolute;
+  top: 70px; /* İsteğe göre ayarlayabilirsin */
+
+  background-color: aliceblue;
+}

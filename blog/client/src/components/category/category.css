@@ -1,0 +1,35 @@
+.category {
+  width: 80px;
+  margin: 20px 0px 0px 80px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.category:hover {
+  transform: scale(1.05);
+}
+
+.categoryImg {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 10px -12px;
+}
+
+.categoryInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 5px -12px;
+}
+
+.categoryTitle {
+  font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 15px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
