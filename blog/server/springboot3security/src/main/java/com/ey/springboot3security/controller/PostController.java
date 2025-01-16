@@ -1,6 +1,7 @@
 package com.ey.springboot3security.controller;
 
 
+import com.ey.springboot3security.entity.Comment;
 import com.ey.springboot3security.entity.Post;
 import com.ey.springboot3security.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,67 +44,37 @@ public class PostController {
         return postService.getAllPosts();
     }
 
-
-
-    @PostMapping("/save")
-    public Post createPost(
-            @RequestParam("title") String title,
-            @RequestParam("category") String category,
-            @RequestParam("content") String content,
-            @RequestParam("imageURL") MultipartFile imageFile, // Resim dosyası
-            @RequestHeader("Authorization") String token) {
-
-        String jwt = token.substring(7); // "Bearer " kelimesini kaldırıyoruz
-
-        // Yeni Post nesnesini oluşturuyoruz
-        Post post = new Post();
-        post.setTitle(title);
-        post.setCategory(category);
-        post.setContent(content);
-
-        // Resim dosyasını kaydetme işlemi
-        if (!imageFile.isEmpty()) {
-            try {
-                // uploads klasörünün olup olmadığını kontrol eder, yoksa oluşturur
-                Path uploadPath = Paths.get(uploadDir);
-                if (!Files.exists(uploadPath)) {
-                    Files.createDirectories(uploadPath);
-                }
-
-                // Benzersiz bir dosya ismi oluştur ve kaydet
-                String originalFileName = imageFile.getOriginalFilename();
-                String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-                String uniqueFileName = System.currentTimeMillis() + fileExtension; // Örneğin: 1634567891234.jpg
-                Path filePath = uploadPath.resolve(uniqueFileName);
-
-                // Dosyayı hedefe kaydet
-                Files.copy(imageFile.getInputStream(), filePath);
-
-                // Post nesnesine dosya yolunu ekle
-                post.setImageURL("/" + uploadDir + uniqueFileName); // Dosya yolunu ayarla (örneğin: /uploads/1634567891234.jpg)
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new RuntimeException("Resim yüklenirken bir hata oluştu.");
-            }
-        }
-
-        // JWT kullanarak kullanıcı bilgilerini alabiliriz (jwt üzerinden)
-        return postService.createPost(post, jwt);
-    }
-
     // Postu ID'ye göre getir
     @GetMapping("/{postId}")
     public Post getPostById(@PathVariable String postId) {
         return postService.getPostById(postId);
     }
 
-    @PutMapping("/update/{id}")
-    public Post updatePost(@PathVariable String id, @RequestBody Post post, @RequestHeader("Authorization") String token) {
-        String jwt = token.substring(7); // "Bearer " kelimesini kaldırıyoruz
-        return postService.updatePost(id, post, jwt);
+    //Gönderi oluştur
+    @PostMapping("/save")
+    public Post createPost(@RequestBody Post post,@RequestHeader("Authorization") String token) {
+
+        String jwt = token.substring(7);
+
+        return postService.createPost(post, jwt);
     }
 
+    //Gönderiyi güncelle
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Post> updatePost(
+            @PathVariable String id,
+            @RequestBody Post post,
+            @RequestHeader("Authorization") String token) {
+
+        String jwt = token.substring(7);
+
+        try {
+            Post updatedPost = postService.updatePost(id, post, jwt);
+            return ResponseEntity.ok(updatedPost);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(403).body(null); // Yetkisiz işlem için 403 dönüyoruz
+        }
+    }
 
     // Gönderiyi sil
     @DeleteMapping("/{id}")
@@ -115,4 +86,3 @@ public class PostController {
         }
     }
 }
-

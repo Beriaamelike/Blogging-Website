@@ -6,7 +6,8 @@
 }
 
 .singlePostImg {
-  width: 100%;
+  margin-left: 70px;
+  width: 70%;
   height: auto;
   border-radius: 5px;
   object-fit: auto;
@@ -59,4 +60,9 @@
   margin-left: 20px;
   font-size: 30px;
   font-weight: 600;
+}
+
+.commentsContainer {
+  padding-left: 550px;
+  margin-right: 70px;
 }

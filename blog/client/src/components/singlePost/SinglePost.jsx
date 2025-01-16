@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 import "./singlePost.css";
 import Comments from "../comments/Comments";
-
 
 export default function SinglePost() {
     const { id } = useParams();
@@ -11,9 +11,8 @@ export default function SinglePost() {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/api/posts/${id}`);
-                const data = await response.json();
-                setPost(data);
+                const response = await axios.get(`http://localhost:8080/api/posts/${id}`);
+                setPost(response.data);
             } catch (error) {
                 console.error("Error fetching post:", error);
             }
@@ -40,7 +39,7 @@ export default function SinglePost() {
                         </h1>
                         <div className="singlePostInfo">
                             <span>
-                                Author: <b className="singlePostAuthor">{post.author}</b>
+                                Author: <b className="singlePostAuthor">{post.user.username}</b>
                             </span>
                             <span>{new Date(post.createdAt).toLocaleDateString()}</span>
                         </div>
@@ -51,7 +50,6 @@ export default function SinglePost() {
                     <Comments postId={id} />
                 </div>
             </div>
-
         </>
     );
 }

@@ -26,8 +26,8 @@ export default function Login() {
             // AuthContext üzerinden kullanıcıyı login yap
             login(email); // Gerekirse kullanıcı adını AuthContext'e iletin
 
-            // Kullanıcıyı UserDetails sayfasına yönlendir
-            navigate('/userDetails'); // UserDetails sayfasına yönlendirin
+
+            navigate('/write');
 
             setEmail("");
             setPassword("");

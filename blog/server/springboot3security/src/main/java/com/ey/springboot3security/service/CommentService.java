@@ -1,15 +1,12 @@
 package com.ey.springboot3security.service;
 
-
 import com.ey.springboot3security.entity.Comment;
-import com.ey.springboot3security.entity.Post;
 import com.ey.springboot3security.entity.UserInfo;
 import com.ey.springboot3security.repository.CommentRepository;
 import com.ey.springboot3security.repository.UserInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;

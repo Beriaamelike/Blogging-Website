@@ -4,9 +4,8 @@ import './comments.css';
 
 const Comments = ({ postId }) => {
     const [comments, setComments] = useState([]);
-    const [commentText, setCommentText] = useState(""); // Yeni yorum için state
+    const [commentText, setCommentText] = useState("");
 
-    // Yorumları çekmek için useEffect kullanıyoruz
     useEffect(() => {
         const fetchComments = async () => {
             try {
@@ -19,13 +18,11 @@ const Comments = ({ postId }) => {
         fetchComments();
     }, [postId]);
 
-    // Yorum ekleme işlemi için handleSubmit fonksiyonu
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Sayfanın yenilenmesini engeller
-        const token = localStorage.getItem("token"); // JWT token'ı alıyoruz
+        e.preventDefault();
+        const token = localStorage.getItem("token");
 
         try {
-            // Yorum API'ye gönderiliyor
             const response = await axios.post(
                 `http://localhost:8080/api/comments/save/${postId}`,
                 { commentInfo: commentText },
@@ -35,60 +32,48 @@ const Comments = ({ postId }) => {
                     },
                 }
             );
-            // Yeni yorumu mevcut yorumlara ekliyoruz
             setComments([...comments, response.data]);
-            setCommentText(""); // Yorum alanını temizliyoruz
+            setCommentText("");
         } catch (error) {
             console.error("Error adding comment:", error);
         }
     };
 
     return (
-        <div className="row d-flex justify-content-end" id="row">
-            <div className="col-md-1 col-lg-8">
-                <div className="card shadow-0 border" style={{ backgroundColor: "#f0f2f5" }}>
-                    <div className="card-body p-4">
-                        {/* Yorum Ekleme Alanı */}
-                        <form onSubmit={handleSubmit}>
-                            <div data-mdb-input-init="" className="form-outline mb-4">
-                                <input
-                                    type="text"
-                                    id="addANote"
-                                    className="form-control"
-                                    placeholder="Type comment..."
-                                    value={commentText} // Yorum state'i ile bağlıyoruz
-                                    onChange={(e) => setCommentText(e.target.value)} // Input değişimini yönetiyoruz
-                                />
-                                <label className="form-label" htmlFor="addANote">+ Add a note</label>
-                            </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
-                        </form>
+        <div className="comments-container">
+            <div className="comments-card">
+                <div className="comments-body">
+                    <form onSubmit={handleSubmit} className="comment-form">
+                        <input
+                            type="text"
+                            className="comment-input"
+                            placeholder="Type comment..."
+                            value={commentText}
+                            onChange={(e) => setCommentText(e.target.value)}
+                        />
+                        <button type="submit" className="submit-button">Submit</button>
+                    </form>
 
-                        {/* Yorumları Listeleme Alanı */}
-                        {comments.length > 0 ? (
-                            comments.map((comment) => (
-                                <div className="card mb-4" key={comment.commentId}>
-                                    <div className="card-body">
-                                        <p>{comment.commentInfo}</p>
-                                        <div className="d-flex justify-content-between">
-                                            <div className="d-flex flex-row align-items-center">
-                                                <p className="small mb-0">{comment.user.name}</p>
-                                            </div>
-                                            <div className="d-flex flex-row align-items-center">
-                                                <p className="small text-muted mb-0">{new Date(comment.createdCommentAt).toLocaleDateString()}</p>
-                                            </div>
-                                        </div>
+                    {comments.length > 0 ? (
+                        comments.map((comment) => (
+                            <div className="comment-card" key={comment.commentId}>
+                                <div className="comment-content">
+                                    <p>{comment.commentInfo}</p>
+                                    <div className="comment-footer">
+                                        <p className="comment-username">{comment.user.username}</p>
+                                        <p className="comment-date">{new Date(comment.createdCommentAt).toLocaleDateString()}</p>
                                     </div>
                                 </div>
-                            ))
-                        ) : (
-                            <p>No comments yet for this post</p>
-                        )}
-                    </div>
+                            </div>
+                        ))
+                    ) : (
+                        <p className="no-comments">No comments yet for this post</p>
+                    )}
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 
 export default Comments;
+

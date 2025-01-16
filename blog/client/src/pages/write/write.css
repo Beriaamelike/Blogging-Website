@@ -1,109 +1,86 @@
-/* Genel Ayarlar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Ana konteyner */
+.write-post-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
-/* Ana container */
-.write {
-  width: 100%;
-  height: 900px;
-  background-color: white;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Resim önizlemesi */
-.writeImg {
-  width: 100%;
-  border-radius: 5px;
-  object-fit: contain;
-}
-
-/* Form Elemanları */
-.writeForm {
+/* Form stili */
+.write-post-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 20px;
+  border: 1px solid #ddd;
+
+  background-color: rgb(221, 227, 228);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Giriş Elemanları */
-.writeInput {
+/* Genel input stilleri */
+.write-post-input,
+.write-post-textarea,
+.write-post-select {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
+  padding: 12px;
+  font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.writeInput:focus {
+  border-radius: 5px;
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  transition: border-color 0.3s ease;
 }
 
-/* Kategori Seçimi */
-.writeSelect {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.writeSelect:focus {
-  outline: none;
+.write-post-input:focus,
+.write-post-textarea:focus,
+.write-post-select:focus {
   border-color: #007bff;
 }
 
-/* Textarea Ayarları */
-.writeText {
-  height: 150px;
-  resize: none;
-  font-family: inherit;
+.write-post-textarea {
+  resize: vertical;
+  min-height: 200px; /* Yüksekliği artırmak için bu değeri büyütün */
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
-
-/* Resim Yükleme Butonu */
-.writeIcon {
-  font-size: 20px;
-  cursor: pointer;
-  color: #007bff;
-  transition: color 0.3s ease;
-}
-
-.writeIcon:hover {
-  color: #0056b3;
-}
-
-/* Postala Butonu */
-.writeSubmit {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+/* Buton stili */
+.write-post-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #95c1a6;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.writeSubmit:hover {
+.write-post-button:hover {
   background-color: #0056b3;
 }
 
-/* Durum Mesajı */
-.statusMessage {
+/* Mesaj stili */
+.write-post-message {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.write-post-message.success {
   color: #28a745;
-  font-size: 14px;
+}
+
+.write-post-message.error {
+  color: #dc3545;
+}
+
+/* Placeholder renkleri */
+.write-post-input::placeholder,
+.write-post-textarea::placeholder {
+  color: #999;
 }

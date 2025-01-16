@@ -1,228 +1,56 @@
-body {
-  margin-top: 20px;
-}
-.blog-grid {
-  position: relative;
-  box-shadow: 0 1rem 1.75rem 0 rgba(45, 55, 75, 0.1);
-  height: 100%;
-  border: 0.0625rem solid rgba(220, 224, 229, 0.6);
-  border-radius: 0.25rem;
-  transition: all 0.2s ease-in-out;
-  height: 100%;
+/* Ana kapsayıcı için stil */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Üç sütun oluşturur */
+
+  gap: 35px; /* Sütunlar arasındaki boşluk */
+  padding: 20px; /* Kapsayıcı içindeki boşluk */
 }
 
-.blog-grid span {
-  color: #292dc2;
+/* Her gönderi için stil */
+.post {
+  border: 1px solid #ddd; /* Hafif bir kenarlık */
+  border-radius: 5px; /* Kenarları yuvarlar */
+  padding: 10px; /* İçerik için boşluk */
+  text-align: center; /* Metni ortalar */
+  transition: box-shadow 0.3s ease; /* Geçiş efekti */
+  margin-left: -8px;
 }
 
-.blog-grid img {
-  width: 100%;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+/* Her gönderinin üzerine gelindiğinde gölgelik eklemek için */
+.post:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge */
 }
 
-.blog-grid-text {
-  position: relative;
+/* Resim için stil */
+.post img {
+  max-width: 100%; /* Resmin kapsayıcıya göre boyutlandırılmasını sağlar */
+  height: auto; /* Orantılı boyutlandırma */
+  border-radius: 5px; /* Resmin kenarlarını yuvarlar */
 }
 
-.blog-grid-text > span {
-  color: #292dc2;
-  font-size: 13px;
-  padding-right: 5px;
+/* Başlık için stil */
+.post h3 {
+  font-size: 1.25rem; /* Başlık boyutu */
+  margin: 10px 0; /* Üst ve alt boşluk */
 }
 
-.blog-grid-text h4 {
-  line-height: normal;
-  margin-bottom: 15px;
+/* Meta bilgileri için stil */
+.meta {
+  display: flex; /* Meta bilgilerini yan yana dizmek için */
+  justify-content: center; /* Ortalar */
+  flex-wrap: wrap; /* Taşma durumunda yeni satıra geçer */
+  margin-top: 10px; /* Üstte boşluk bırakır */
 }
 
-.blog-grid-text .meta-style2 {
-  border-top: 1px dashed #cee1f8;
-  padding-top: 15px;
+.meta span {
+  margin-right: 10px; /* Sağda boşluk bırakır */
+  font-size: 0.9rem; /* Daha küçük yazı boyutu */
+  color: #666; /* Renk */
 }
 
-.blog-grid-text .meta-style2 ul li {
-  margin-bottom: 0;
-  font-weight: 500;
-}
-
-.blog-grid-text .meta-style2 ul li:last-child {
-  margin-right: 0;
-}
-
-.blog-grid-text ul {
-  margin: 0;
-  padding: 0;
-}
-
-.blog-grid-text ul li {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 500;
-  margin: 5px 10px 5px 0;
-}
-
-.blog-grid-text ul li:last-child {
-  margin-right: 0;
-}
-
-.blog-grid-text ul li i {
-  font-size: 14px;
-  font-weight: 600;
-  margin-right: 5px;
-}
-
-.blog-grid-text p {
-  font-weight: 400;
-  padding: 0;
-}
-
-.blog-list-left-heading:after,
-.blog-title-box:after {
-  content: "";
-  height: 2px;
-}
-
-.blog-grid-simple-content a:hover {
-  color: #1d184a;
-}
-
-.blog-grid-simple-content a:hover:after {
-  color: #1d184a;
-}
-.blog-grid-text {
-  position: relative;
-}
-
-.blog-grid-text > span {
-  color: #292dc2;
-  font-size: 13px;
-  padding-right: 5px;
-}
-
-.blog-grid-text h4 {
-  line-height: normal;
-  margin-bottom: 15px;
-}
-
-.blog-grid-text .meta-style2 {
-  border-top: 1px dashed #cee1f8 !important;
-  padding-top: 15px;
-}
-
-.blog-grid-text .meta-style2 ul li {
-  margin-bottom: 0;
-  font-weight: 500;
-}
-
-.blog-grid-text .meta-style2 ul li:last-child {
-  margin-right: 0;
-}
-
-.blog-grid-text ul {
-  margin: 0;
-  padding: 0;
-}
-
-.blog-grid-text ul li {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 500;
-  margin: 5px 10px 5px 0;
-}
-
-.blog-grid-text ul li:last-child {
-  margin-right: 0;
-}
-
-.blog-grid-text ul li i {
-  font-size: 14px;
-  font-weight: 600;
-  margin-right: 5px;
-}
-
-.blog-grid-text p {
-  font-weight: 400;
-  padding: 0;
-}
-
-a,
-a:active,
-a:focus {
-  color: #575a7b;
+.link {
+  color: #74a8a4;
+  font-weight: bold;
   text-decoration: none;
-  transition-timing-function: ease-in-out;
-  -ms-transition-timing-function: ease-in-out;
-  -moz-transition-timing-function: ease-in-out;
-  -webkit-transition-timing-function: ease-in-out;
-  -o-transition-timing-function: ease-in-out;
-  transition-duration: 0.2s;
-  -ms-transition-duration: 0.2s;
-  -moz-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-}
-
-.pagination {
-  border-radius: 0;
-  padding: 0;
-  margin: 0;
-}
-
-.pagination ul {
-  display: inline-block;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.pagination li {
-  display: inline;
-}
-
-.pagination a {
-  float: left;
-  padding: 0 18px;
-  line-height: 40px;
-  text-decoration: none;
-  border: 1px solid #dbdbdb;
-  border-left-width: 0;
-  background: #fff;
-}
-
-.pagination a:hover {
-  background-color: #1d184a;
-  color: #fff;
-}
-
-.pagination .active a {
-  background-color: #f7f7f7;
-  color: #999;
-  cursor: default;
-}
-
-.pagination .disabled span {
-  color: #999;
-  background-color: transparent;
-  cursor: default;
-}
-
-.pagination .disabled a {
-  color: #999;
-  background-color: transparent;
-  cursor: default;
-}
-
-.pagination .disabled a:hover {
-  color: #999;
-  background-color: transparent;
-  cursor: default;
-}
-
-.pagination li:first-child a {
-  border-left-width: 1px;
-}
-
-.mt-6,
-.my-6 {
-  margin-top: 3.5rem;
 }

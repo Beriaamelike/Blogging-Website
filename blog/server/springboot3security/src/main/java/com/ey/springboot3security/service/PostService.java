@@ -31,21 +31,29 @@ public class PostService {
     }
 
     public Post updatePost(String id, Post post, String token) {
-        String username = jwtUtils.extractEmail(token); // Token'dan userId alıyoruz
+        // Token'dan kullanıcı e-postasını çıkarıyoruz
+        String username = jwtUtils.extractEmail(token);
+
+        // Güncellenecek postu veritabanından çekiyoruz
         Post existingPost = postRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Post not found"));
 
-        // Kullanıcının postu güncelleyebilmesi için kontrol
-        if (!existingPost.getUser().getId().equals(username)) {
+        // Gönderiyi güncellemek isteyen kullanıcı ile postun sahibi aynı mı kontrol ediyoruz
+        if (!existingPost.getUser().getEmail().equals(username)) {
             throw new RuntimeException("You are not authorized to update this post");
         }
 
-        existingPost.setTitle(post.getTitle()); // Başlık güncelleniyor
-        existingPost.setContent(post.getContent()); // İçerik güncelleniyor
-        existingPost.setUpdatedAt(new Date()); // Güncellenme tarihi
+        // Postun güncellenebilir alanlarını set ediyoruz
+        existingPost.setTitle(post.getTitle());
+        existingPost.setContent(post.getContent());
+        existingPost.setCategory(post.getCategory());
+        existingPost.setImageURL(post.getImageURL());
+        existingPost.setUpdatedAt(new Date()); // Güncellenme tarihini güncelliyoruz
 
-        return postRepository.save(existingPost); // Güncellenmiş postu kaydediyoruz
+        // Güncellenmiş postu kaydediyoruz
+        return postRepository.save(existingPost);
     }
+
 
 
     // Tüm gönderileri getir
@@ -77,17 +85,6 @@ public class PostService {
 
 
 
-    // Gönderiyi güncelle
-    public Optional<Post> updatePost(String id, Post postDetails) {
-        return postRepository.findById(id).map(existingPost -> {
-            existingPost.setTitle(postDetails.getTitle());
-            existingPost.setContent(postDetails.getContent());
-
-            existingPost.setUpdatedAt(new Date());
-            return postRepository.save(existingPost);
-        });
-    }
-
     // Gönderiyi sil
     public boolean deletePost(String id) {
         if (postRepository.existsById(id)) {
@@ -97,4 +94,3 @@ public class PostService {
         return false;
     }
 }
-

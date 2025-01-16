@@ -26,11 +26,6 @@ public class Post {
     private Date createdAt;
     private Date updatedAt;
 
-
-
     private UserInfo user;
-
-
-
 
 }

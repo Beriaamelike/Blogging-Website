@@ -33,7 +33,7 @@
   display: flex;
   justify-content: center;
   margin: 0;
-  padding: 0;
+  padding-top: 10px;
   list-style: none;
 }
 
@@ -43,7 +43,8 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  border-radius: 2pxj;
+  border-radius: 4pxj;
+  text-decoration: none;
 }
 
 .topListItem:hover {

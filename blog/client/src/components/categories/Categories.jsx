@@ -12,6 +12,7 @@ export default function Categories() {
             <Category img="https://styleandsenses.com/wp-content/uploads/2020/02/20200202-Style-Senses-An-Trieu-Uniqlo-Paloma-Wool-Massimo-Dutti-Telfar-Glasswing-Muji-9-1080x675.jpg" name="Fashion" />
             <Category img="https://images.squarespace-cdn.com/content/v1/5fe1c9a0013d1b71f8bbe7b0/8a97d707-ff74-4608-aadc-ba301a3dee39/pexels-antoni-shkraba-4442035.jpg" name="Art" />
             <Category img="https://media.istockphoto.com/id/1326419180/photo/beautiful-woman-relaxing-and-drinking-hot-tea.jpg?s=612x612&w=0&k=20&c=qrSWG73ojw7pUftLvkQxL6maCWhfQVjuAba96d0vbEU=" name="Lifestyle" />
+            <Category img="https://i.gazeteoksijen.com/storage/files/images/2024/07/10/para-biriktirmek-rahat-ve-duzenli-uykunun-yolunu-aciyor-cxyy.jpg" name="Finance" />
         </div>
     );
 }

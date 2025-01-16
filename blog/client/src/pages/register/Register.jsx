@@ -18,7 +18,7 @@ export default function Register() {
         try {
             await axios.post("http://localhost:8080/auth/addNewUser",
                 {
-                    name: username,
+                    username: username,
                     email: email,
                     password: password
                 });
@@ -33,9 +33,6 @@ export default function Register() {
             console.log(err);
         }
     }
-
-
-
 
     return (
         <div className="register">
