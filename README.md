@@ -1,0 +1,6 @@
+![Homepage](images/HOMEPAGE.jpg)
+![Login Screen](images/Login.jpg)
+![Posts Screen](images/Posts.jpg)
+![Register Screen](images/Register.jpg)
+![Single Post View](images/SinglePost.jpg)
+![Write Post Screen](images/WritePost.jpg)
