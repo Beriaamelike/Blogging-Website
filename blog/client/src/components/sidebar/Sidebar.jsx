@@ -4,75 +4,26 @@ import "./sidebar.css";
 export default function Sidebar() {
   return (
     <footer className="bg-body-tertiary text-center">
-      {/* Grid container */}
+      {/* Social media buttons container */}
       <div className="container p-6 pb-0">
-        {/* Section: Social media */}
         <section className="mb-6">
-          {/* Facebook */}
-          <a
-            data-mdb-ripple-init=""
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#3b5998" }}
-            href="#!"
-            role="button"
-          >
-            <i className="fab fa-facebook-f" />
-          </a>
-          {/* Twitter */}
-          <a
-            data-mdb-ripple-init=""
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#55acee" }}
-            href="#!"
-            role="button"
-          >
-            <i className="fab fa-twitter" />
-          </a>
-          {/* Google */}
-          <a
-            data-mdb-ripple-init=""
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#dd4b39" }}
-            href="#!"
-            role="button"
-          >
-            <i className="fab fa-google" />
-          </a>
-          {/* Instagram */}
-          <a
-            data-mdb-ripple-init=""
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#ac2bac" }}
-            href="#!"
-            role="button"
-          >
-            <i className="fab fa-instagram" />
-          </a>
-          {/* Linkedin */}
-          <a
-            data-mdb-ripple-init=""
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#0082ca" }}
-            href="#!"
-            role="button"
-          >
-            <i className="fab fa-linkedin-in" />
-          </a>
-          {/* Github */}
-          <a
-            data-mdb-ripple-init=""
-            className="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#333333" }}
-            href="#!"
-            role="button"
-          >
-            <i className="fab fa-github" />
-          </a>
+          {/* Social media links */}
+          {['facebook', 'twitter', 'google', 'instagram', 'linkedin', 'github'].map((social, index) => (
+            <a
+              key={index}
+              data-mdb-ripple-init=""
+              className="btn text-white btn-floating m-1"
+              style={{ backgroundColor: getColor(social) }}
+              href="#!"
+              role="button"
+            >
+              <i className={`fab fa-${social}`} />
+            </a>
+          ))}
         </section>
-        {/* Section: Social media */}
       </div>
-      {/* Grid container */}
-      {/* Copyright */}
+
+      {/* Footer Copyright */}
       <div
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
@@ -82,8 +33,19 @@ export default function Sidebar() {
           MDBootstrap.com
         </a>
       </div>
-      {/* Copyright */}
     </footer>
-
   );
+}
+
+// Helper function to return background color for each social media platform
+function getColor(platform) {
+  const colors = {
+    facebook: "#3b5998",
+    twitter: "#55acee",
+    google: "#dd4b39",
+    instagram: "#ac2bac",
+    linkedin: "#0082ca",
+    github: "#333333",
+  };
+  return colors[platform] || "#000"; // Default fallback
 }
